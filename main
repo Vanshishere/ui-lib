@@ -2,6 +2,8 @@
     Matas#3535 @matas - Created UI
     bored#9316 @wally hub user - Helped make library
 ]] -- // Variables
+
+-- Edited by Linen, now the mouse icon wont be forced o
 local ws = game:GetService("Workspace")
 local uis = game:GetService("UserInputService")
 local rs = game:GetService("RunService")
@@ -951,6 +953,7 @@ do
             window.cursor["cursor_inline"] = cursor_inline
             --
             utility:Connection(rs.RenderStepped, function()
+              --[[
                 local mouseLocation = utility:MouseLocation()
                 --
                 cursor.PointA = Vector2.new(mouseLocation.X, mouseLocation.Y)
@@ -960,9 +963,10 @@ do
                 cursor_inline.PointA = Vector2.new(mouseLocation.X, mouseLocation.Y)
                 cursor_inline.PointB = Vector2.new(mouseLocation.X + 16, mouseLocation.Y + 6)
                 cursor_inline.PointC = Vector2.new(mouseLocation.X + 6, mouseLocation.Y + 16)
+                ]]
             end)
             --
-            uis.MouseIconEnabled = false
+            --uis.MouseIconEnabled = false
             --
             return window.cursor
         end
@@ -979,9 +983,9 @@ do
                 end
             end)
             --
-            window.cursor["cursor"].Transparency = window.isVisible and 1 or 0
-            window.cursor["cursor_inline"].Transparency = window.isVisible and 1 or 0
-            uis.MouseIconEnabled = not window.isVisible
+            --window.cursor["cursor"].Transparency = window.isVisible and 1 or 0
+            --window.cursor["cursor_inline"].Transparency = window.isVisible and 1 or 0
+            --uis.MouseIconEnabled = not window.isVisible
             --
             window.fading = false
         end
